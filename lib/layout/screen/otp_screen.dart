@@ -143,7 +143,6 @@ class OtpScreen extends StatelessWidget {
         }
 
         if (state is PhoneOTPVerified) {
-          // Navigator.pop(context);
           navigateTo(context, MapScreen(phoneNumber: phoneNumber));
         }
 

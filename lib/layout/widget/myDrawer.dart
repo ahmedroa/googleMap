@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mappp/constants/my_colors.dart';
+// import 'package:url_launcher/url_launcher.dart';
+
+import '../../bloc/bloc_cubit.dart';
 
 class MyDrawer extends StatelessWidget {
   MyDrawer({Key? key}) : super(key: key);
@@ -15,18 +20,22 @@ class MyDrawer extends StatelessWidget {
             shape: BoxShape.rectangle,
             color: Colors.blue[100],
           ),
-          child: Image.asset(
-            'assets/images/omar.jpg',
+          child: Image.network(
+            'https://pbs.twimg.com/profile_images/1669852053731000320/esNr87L8_400x400.jpg',
             fit: BoxFit.cover,
           ),
         ),
         Text(
-          'Omar Ahmed',
+          'Ahmed Khalid',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         const SizedBox(
           height: 5,
         ),
+        Text(
+          '01287729832',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        )
         // BlocProvider<PhoneAuthCubit>(
         //     create: (context) => phoneAuthCubit,
         //     child: Text(
@@ -37,8 +46,13 @@ class MyDrawer extends StatelessWidget {
     );
   }
 
-  Widget buildDrawerListItem(
-      {required IconData leadingIcon, required String title, Widget? trailing, Function()? onTap, Color? color}) {
+  Widget buildDrawerListItem({
+    required IconData leadingIcon,
+    required String title,
+    Widget? trailing,
+    Function()? onTap,
+    Color? color,
+  }) {
     return ListTile(
       leading: Icon(
         leadingIcon,
@@ -82,45 +96,20 @@ class MyDrawer extends StatelessWidget {
       padding: const EdgeInsetsDirectional.only(start: 16),
       child: Row(
         children: [
-          // buildIcon(
-          //   FontAwesomeIcons.facebook,
-          //   'https://www.facebook.com/groups/omarahmedx14',
-          // ),
-          const SizedBox(
-            width: 15,
+          buildIcon(
+            FontAwesomeIcons.twitter,
+            'https://www.facebook.com/groups/omarahmedx14',
           ),
-          // buildIcon(
-          //   FontAwesomeIcons.youtube,
-          //   'https://www.youtube.com/c/OmarAhmedx14/videos',
-          // ),
-          // const SizedBox(
-          //   width: 20,
-          // ),
-          // buildIcon(
-          //   FontAwesomeIcons.telegram,
-          //   'https://t.me/OmarX14',
-          // ),
+          const SizedBox(
+            width: 20,
+          ),
+          buildIcon(
+            FontAwesomeIcons.telegram,
+            'https://t.me/FlutterDevo0',
+          ),
         ],
       ),
     );
-  }
-
-  Widget buildLogoutBlocProvider(context) {
-    return Container(
-        // child: BlocProvider<PhoneAuthCubit>(
-        //   create: (context) => phoneAuthCubit,
-        //   child: buildDrawerListItem(
-        //     leadingIcon: Icons.logout,
-        //     title: 'Logout',
-        //     onTap: () async {
-        //       await phoneAuthCubit.logOut();
-        //       Navigator.of(context).pushReplacementNamed(loginScreen);
-        //     },
-        // color: Colors.red,
-        // trailing: SizedBox(),
-        // ),
-        // ),
-        );
   }
 
   @override
@@ -148,9 +137,19 @@ class MyDrawer extends StatelessWidget {
           buildDrawerListItemsDivider(),
           buildDrawerListItem(leadingIcon: Icons.help, title: 'Help'),
           buildDrawerListItemsDivider(),
-          buildLogoutBlocProvider(context),
+          BlocProvider<PhoneAuthCubit>(
+            create: (context) => PhoneAuthCubit(),
+            child: buildDrawerListItem(
+              leadingIcon: Icons.logout,
+              title: 'logout',
+              onTap: () {
+                PhoneAuthCubit().logOut();
+              },
+            ),
+          ),
+          buildDrawerListItemsDivider(),
           const SizedBox(
-            height: 180,
+            height: 130,
           ),
           ListTile(
             leading: Text(
