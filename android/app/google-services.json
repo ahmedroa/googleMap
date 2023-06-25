@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "409813149520",
+    "project_id": "map-ce5ee",
+    "storage_bucket": "map-ce5ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409813149520:android:287dd9f0057957abff6e55",
+        "android_client_info": {
+          "package_name": "com.example.mappp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "409813149520-u8pt1uu62vh2bojut937aa0193nrtun0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhh0X-HVpzLZakS1wmxtpF8n3aAIAWf64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "409813149520-u8pt1uu62vh2bojut937aa0193nrtun0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
