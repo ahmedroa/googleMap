@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mappp/bloc/bloc_state.dart';
 import 'package:mappp/constants/my_colors.dart';
+import 'package:mappp/layout/screen/login_screen.dart';
+import 'package:mappp/models/strings.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
 import '../../bloc/bloc_cubit.dart';
@@ -139,11 +142,20 @@ class MyDrawer extends StatelessWidget {
           buildDrawerListItemsDivider(),
           BlocProvider<PhoneAuthCubit>(
             create: (context) => PhoneAuthCubit(),
-            child: buildDrawerListItem(
-              leadingIcon: Icons.logout,
-              title: 'logout',
-              onTap: () {
-                PhoneAuthCubit().logOut();
+            child: BlocConsumer<PhoneAuthCubit, PhoneAuthState>(
+              listener: (context, state) {
+                if (state is LogoutSuccessful) {
+                  navigateAndFinish(context, LoginScreen());
+                }
+              },
+              builder: (context, state) {
+                return buildDrawerListItem(
+                  leadingIcon: Icons.logout,
+                  title: 'logout',
+                  onTap: () {
+                    PhoneAuthCubit().logOut();
+                  },
+                );
               },
             ),
           ),

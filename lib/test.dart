@@ -13,7 +13,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     allMarkers.add(Marker(
         markerId: MarkerId('myMarker'),
@@ -35,8 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: GoogleMap(
-            initialCameraPosition:
-                CameraPosition(target: LatLng(40.7128, -74.0060), zoom: 12.0),
+            initialCameraPosition: CameraPosition(target: LatLng(40.7128, -74.0060), zoom: 12.0),
             markers: Set.from(allMarkers),
             onMapCreated: mapCreated,
           ),
@@ -48,9 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Container(
               height: 40.0,
               width: 40.0,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.0),
-                  color: Colors.green),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0), color: Colors.green),
               child: Icon(Icons.forward, color: Colors.white),
             ),
           ),
@@ -62,8 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Container(
               height: 40.0,
               width: 40.0,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.0), color: Colors.red),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0), color: Colors.red),
               child: Icon(Icons.backspace, color: Colors.white),
             ),
           ),
@@ -80,11 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   movetoBoston() {
     _controller.animateCamera(CameraUpdate.newCameraPosition(
-      CameraPosition(
-          target: LatLng(42.3601, -71.0589),
-          zoom: 14.0,
-          bearing: 45.0,
-          tilt: 45.0),
+      CameraPosition(target: LatLng(42.3601, -71.0589), zoom: 14.0, bearing: 45.0, tilt: 45.0),
     ));
   }
 

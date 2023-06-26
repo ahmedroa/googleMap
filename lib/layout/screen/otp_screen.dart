@@ -123,6 +123,7 @@ class OtpScreen extends StatelessWidget {
         ),
         style: ElevatedButton.styleFrom(
           minimumSize: Size(110, 50),
+          // ignore: deprecated_member_use
           primary: Colors.black,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(6),

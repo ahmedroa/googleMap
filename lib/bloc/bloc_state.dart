@@ -4,6 +4,8 @@ class PhoneAuthInitial extends PhoneAuthState {}
 
 class Loading extends PhoneAuthState {}
 
+class LogoutSuccessful extends PhoneAuthState {}
+
 class ErrorOccurred extends PhoneAuthState {
   final String errorMsg;
 
