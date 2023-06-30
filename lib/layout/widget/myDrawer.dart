@@ -29,14 +29,15 @@ class MyDrawer extends StatelessWidget {
           ),
         ),
         Text(
-          'Ahmed Khalid',
+          'Ahmed',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         const SizedBox(
           height: 5,
         ),
+        // 01287729832
         Text(
-          '01287729832',
+          '0537305711',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         )
         // BlocProvider<PhoneAuthCubit>(
@@ -153,7 +154,7 @@ class MyDrawer extends StatelessWidget {
                   leadingIcon: Icons.logout,
                   title: 'logout',
                   onTap: () {
-                    PhoneAuthCubit().logOut();
+                    PhoneAuthCubit().logOut(context);
                   },
                 );
               },

@@ -53,7 +53,7 @@ class LoginScreen extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(6)),
             ),
             child: Text(
-              generateCountryFlag() + ' +20',
+              generateCountryFlag() + ' +966',
               style: TextStyle(fontSize: 16, letterSpacing: 1.0),
             ),
           ),
@@ -82,7 +82,7 @@ class LoginScreen extends StatelessWidget {
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Please enter yout phone number!';
-                } else if (value.length < 11) {
+                } else if (value.length < 10) {
                   return 'Too short for a phone number!';
                 }
                 return null;
@@ -98,7 +98,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   String generateCountryFlag() {
-    String countryCode = 'eg';
+    String countryCode = 'SA';
 
     String flag = countryCode.toUpperCase().replaceAllMapped(
           RegExp(r'[A-Z]'),

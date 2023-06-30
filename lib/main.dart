@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mappp/bloc/bloc_cubit.dart';
 import 'package:mappp/layout/screen/login_screen.dart';
-import 'package:mappp/layout/screen/map_screen.dart';
 
 import 'bloc/bloc_state.dart';
 
@@ -25,15 +24,6 @@ class MyApp extends StatelessWidget {
             listener: (context, state) {},
             builder: (context, state) {
               return MaterialApp(
-                // themeMode: ThemeMode.dark,
-                // darkTheme: ThemeData.dark(),
-                // localizationsDelegates: [
-                //   GlobalCupertinoLocalizations.delegate,
-                //   GlobalMaterialLocalizations.delegate,
-                //   GlobalWidgetsLocalizations.delegate,
-                // ],
-                // supportedLocales: [Locale("ar", "AE")],
-                // locale: Locale("ar", "AE"),
                 debugShowCheckedModeBanner: false,
                 title: 'Flutter Demo',
                 theme: ThemeData(

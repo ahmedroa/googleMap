@@ -1,6 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mappp/bloc/bloc_state.dart';
+import 'package:mappp/constants/my_colors.dart';
+import 'package:mappp/layout/screen/login_screen.dart';
+import 'package:mappp/models/strings.dart';
 
 class PhoneAuthCubit extends Cubit<PhoneAuthState> {
   late String verificationId;
@@ -11,7 +15,7 @@ class PhoneAuthCubit extends Cubit<PhoneAuthState> {
     emit(Loading());
 
     await FirebaseAuth.instance.verifyPhoneNumber(
-      phoneNumber: '+20$phoneNumber',
+      phoneNumber: '+966$phoneNumber',
       timeout: const Duration(seconds: 14),
       verificationCompleted: verificationCompleted,
       verificationFailed: verificationFailed,
@@ -65,9 +69,24 @@ class PhoneAuthCubit extends Cubit<PhoneAuthState> {
     }
   }
 
-  Future<void> logOut() async {
-    await FirebaseAuth.instance.signOut();
-    emit(LogoutSuccessful());
+  Future<void> logOut(context) async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      navigateTo(context, LoginScreen());
+      Fluttertoast.showToast(
+        msg: 'Logout successful',
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        // timeInSecForIosWeb: 1,
+        backgroundColor: MyColors.blue,
+
+        textColor: MyColors.lightGrey,
+        fontSize: 16.0,
+      );
+      emit(LogoutSuccessful());
+    } catch (e) {
+      print(e);
+    }
   }
 
   User getLoggedInUser() {

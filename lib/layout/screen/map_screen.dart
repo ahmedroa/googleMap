@@ -28,10 +28,6 @@ class _MapScreenState extends State<MapScreen> {
 
   Set<Marker> markers = Set();
 
-  late Marker searchedPlaceMarker;
-  late Marker currentLocationMarker;
-  late CameraPosition goToSearchedForPlace;
-
   Future<void> getMyCurrentLocation() async {
     position = await LocationHelper.getCurrentLocation().whenComplete(() {
       setState(() {});
@@ -49,16 +45,6 @@ class _MapScreenState extends State<MapScreen> {
       onMapCreated: (GoogleMapController controller) {
         _mapController.complete(controller);
       },
-      // polylines: placeDirections != null
-      // ? {
-      //     Polyline(
-      //       polylineId: const PolylineId('my_polyline'),
-      //       color: Colors.black,
-      //       width: 2,
-      //       points: polylinePoints,
-      //     ),
-      //   }
-      // : {},
     );
   }
 
@@ -68,26 +54,7 @@ class _MapScreenState extends State<MapScreen> {
     getMyCurrentLocation();
   }
 
-  // void buildCameraNewPosition() {
-  //   goToSearchedForPlace = CameraPosition(
-  //     bearing: 0.0,
-  //     tilt: 0.0,
-  //     target: LatLng(
-  //       selectedPlace.result.geometry.location.lat,
-  //       selectedPlace.result.geometry.location.lng,
-  //     ),
-  //     zoom: 13,
-  //   );
-  // }
-
-  // these variables for getDirections
-  // PlaceDirections? placeDirections;
-  // var progressIndicator = false;
-  // late List<LatLng> polylinePoints;
-  // var isSearchedPlaceMarkerClicked = false;
-  // var isTimeAndDistanceVisible = false;
-  // late String time;
-  // late String distance;
+  //
 
   Future<void> _goToMyCurrentLocation() async {
     final GoogleMapController controller = await _mapController.future;
@@ -148,110 +115,10 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
-  // Widget buildDiretionsBloc() {
-  //   return BlocListener<MapsCubit, MapsState>(
-  //     listener: (context, state) {
-  //       if (state is DirectionsLoaded) {
-  //         placeDirections = (state).placeDirections;
-
-  //         getPolylinePoints();
-  //       }
-  //     },
-  //     child: Container(),
-  //   );
-  // }
-
-  // void getPolylinePoints() {
-  //   polylinePoints = placeDirections!.polylinePoints
-  //       .map((e) => LatLng(e.latitude, e.longitude))
-  //       .toList();
-  // }
-
-  // Widget buildSelectedPlaceLocationBloc() {
-  //   return BlocListener<MapsCubit, MapsState>(
-  //     listener: (context, state) {
-  //       if (state is PlaceLocationLoaded) {
-  //         selectedPlace = (state).place;
-
-  //         goToMySearchedForLocation();
-  //         getDirections();
-  //       }
-  //     },
-  //     child: Container(),
-  //   );
-  // }
-
-  // void buildCurrentLocationMarker() {
-  //   currentLocationMarker = Marker(
-  //     position: LatLng(position!.latitude, position!.longitude),
-  //     markerId: MarkerId('2'),
-  //     onTap: () {},
-  //     infoWindow: InfoWindow(title: "Your current Location"),
-  //     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
-  //   );
-  //   addMarkerToMarkersAndUpdateUI(currentLocationMarker);
-  // }
-
   // void addMarkerToMarkersAndUpdateUI(Marker marker) {
   //   setState(() {
   //     markers.add(marker);
   //   });
-  // }
-
-  // void getPlacesSuggestions(String query) {
-  //   final sessionToken = Uuid().v4();
-  //   BlocProvider.of<MapsCubit>(context)
-  //       .emitPlaceSuggestions(query, sessionToken);
-  // }
-
-  // Widget buildSuggestionsBloc() {
-  //   return BlocBuilder<MapsCubit, MapsState>(
-  //     builder: (context, state) {
-  //       if (state is PlacesLoaded) {
-  //         places = (state).places;
-  //         if (places.length != 0) {
-  //           return buildPlacesList();
-  //         } else {
-  //           return Container();
-  //         }
-  //       } else {
-  //         return Container();
-  //       }
-  //     },
-  //   );
-  // }
-
-  // Widget buildPlacesList() {
-  //   return ListView.builder(
-  //       itemBuilder: (ctx, index) {
-  //         return InkWell(
-  //           onTap: () async {
-  //             placeSuggestion = places[index];
-  //             controller.close();
-  //             getSelectedPlaceLocation();
-  //             polylinePoints.clear();
-  //              removeAllMarkersAndUpdateUI();
-  //           },
-  //           child: PlaceItem(
-  //             suggestion: places[index],
-  //           ),
-  //         );
-  //       },
-  //       itemCount: places.length,
-  //       shrinkWrap: true,
-  //       physics: const ClampingScrollPhysics());
-  // }
-
-  // void removeAllMarkersAndUpdateUI() {
-  //   setState(() {
-  //     markers.clear();
-  //   });
-  // }
-
-  // void getSelectedPlaceLocation() {
-  //   final sessionToken = Uuid().v4();
-  //   BlocProvider.of<MapsCubit>(context)
-  //       .emitPlaceLocation(placeSuggestion.placeId, sessionToken);
   // }
 
   @override
