@@ -22,8 +22,4 @@ packages :
 
 <h2 align="start">ScreenShots</h2>
 
-![photo_2023-07-02_18-17-20](https://github.com/ahmedroa/googleMap/assets/105372011/3e208222-a910-438c-a55e-c23ca851f604)
-![photo_2023-07-02_18-17-23](https://github.com/ahmedroa/googleMap/assets/105372011/0980d848-5b8b-4c48-8f58-6385d7570841)
-![photo_2023-06-29_03-19-31](https://github.com/ahmedroa/googleMap/assets/105372011/ae372d5f-fc0e-42f7-9fb3-ff9e457e0c86)
-![Screenshot 2023-06-29 235209](https://github.com/ahmedroa/googleMap/assets/105372011/c1be97c4-0ccc-4c07-8aa3-d47f8574de2e)
-![photo_2023-07-02_18-17-16](https://github.com/ahmedroa/googleMap/assets/105372011/2f36dc63-3d07-428b-a735-89ee8fbe4186)
+
